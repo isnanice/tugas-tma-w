@@ -1,0 +1,33 @@
+{
+    "version": 1,
+    "author": "Isna Ima Solekhah",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+      { "type": "wokwi-led", "id": "ledQ1", "top": -60, "left": 180, "attrs": { "color": "green", "label": "Q1" } },
+      { "type": "wokwi-resistor", "id": "rQ1", "top": -10, "left": 140, "attrs": { "value": "150" } },
+      { "type": "wokwi-led", "id": "ledQ2", "top": 20, "left": 180, "attrs": { "color": "red", "label": "Q2" } },
+      { "type": "wokwi-resistor", "id": "rQ2", "top": 70, "left": 140, "attrs": { "value": "150" } },
+      { "type": "wokwi-led", "id": "ledQ3", "top": 100, "left": 180, "attrs": { "color": "yellow", "label": "Q3" } },
+      { "type": "wokwi-resistor", "id": "rQ3", "top": 150, "left": 140, "attrs": { "value": "150" } },
+      { "type": "wokwi-led", "id": "ledQ4", "top": 180, "left": 180, "attrs": { "color": "blue", "label": "Q4" } },
+      { "type": "wokwi-resistor", "id": "rQ4", "top": 230, "left": 140, "attrs": { "value": "150" } }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "esp:16", "rQ1:1", "green", [ "h0" ] ],
+      [ "rQ1:2", "ledQ1:A", "green", [ "h0" ] ],
+      [ "ledQ1:C", "esp:GND.2", "black", [ "v0" ] ],
+      [ "esp:17", "rQ2:1", "red", [ "h0" ] ],
+      [ "rQ2:2", "ledQ2:A", "red", [ "h0" ] ],
+      [ "ledQ2:C", "esp:GND.2", "black", [ "v0" ] ],
+      [ "esp:18", "rQ3:1", "gold", [ "h0" ] ],
+      [ "rQ3:2", "ledQ3:A", "gold", [ "h0" ] ],
+      [ "ledQ3:C", "esp:GND.2", "black", [ "v0" ] ],
+      [ "esp:19", "rQ4:1", "blue", [ "h0" ] ],
+      [ "rQ4:2", "ledQ4:A", "blue", [ "h0" ] ],
+      [ "ledQ4:C", "esp:GND.2", "black", [ "v0" ] ]
+    ],
+    "dependencies": {}
+  }

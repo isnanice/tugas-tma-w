@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "author": "Isna Ima Solekhah",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+      { "type": "wokwi-pushbutton", "id": "btn1", "top": -40, "left": -150, "attrs": { "color": "yellow", "label": "GPIO12" } },
+      { "type": "wokwi-resistor", "id": "rPull", "top": -90, "left": -140, "attrs": { "value": "10000" } },
+      { "type": "wokwi-potentiometer", "id": "pot1", "top": 60, "left": -170, "attrs": { "label": "GPIO26 (ADC2)" } },
+      { "type": "wokwi-led", "id": "led1", "top": 40, "left": 180, "attrs": { "color": "red", "label": "Tanpa R" } }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "btn1:1.r", "esp:12", "gold", [ "h0" ] ],
+      [ "btn1:2.r", "esp:GND.1", "black", [ "h0" ] ],
+      [ "rPull:1", "esp:12", "red", [ "h0" ] ],
+      [ "rPull:2", "esp:3V3", "red", [ "h0" ] ],
+      [ "pot1:GND", "esp:GND.1", "black", [ "v20", "h60" ] ],
+      [ "pot1:VCC", "esp:3V3", "red", [ "v30", "h60" ] ],
+      [ "pot1:SIG", "esp:26", "purple", [ "v10", "h70" ] ],
+      [ "esp:4", "led1:A", "red", [ "h0" ] ],
+      [ "led1:C", "esp:GND.2", "black", [ "v0" ] ]
+    ],
+    "dependencies": {}
+  }

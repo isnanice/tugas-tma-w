@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "author": "Isna Ima Solekhah",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+      { "type": "wokwi-ds1307", "id": "rtc1", "top": -40, "left": -180, "attrs": {} },
+      { "type": "wokwi-lcd1602", "id": "lcd1", "top": -40, "left": 180, "attrs": { "pins": "i2c", "i2cAddress": "0x20" } }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "rtc1:GND", "esp:GND.1", "black", [ "h0" ] ],
+      [ "rtc1:5V", "esp:5V", "red", [ "h20", "v170" ] ],
+      [ "rtc1:SDA", "esp:21", "orange", [ "h150", "v70" ] ],
+      [ "rtc1:SCL", "esp:22", "purple", [ "h150", "v50" ] ],
+      [ "lcd1:GND", "esp:GND.2", "black", [ "h-20", "v60" ] ],
+      [ "lcd1:VCC", "esp:5V", "red", [ "h-30", "v180", "h-150" ] ],
+      [ "lcd1:SDA", "esp:21", "orange", [ "h-40", "v80" ] ],
+      [ "lcd1:SCL", "esp:22", "purple", [ "h-50", "v60" ] ]
+    ],
+    "dependencies": {}
+  }

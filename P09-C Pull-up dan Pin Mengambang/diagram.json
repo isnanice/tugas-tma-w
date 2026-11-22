@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "author": "Isna Ima Solekhah",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+      { "type": "wokwi-pushbutton", "id": "btnA", "top": -40, "left": -140, "attrs": { "color": "green", "label": "A (27)" } },
+      { "type": "wokwi-pushbutton", "id": "btnB", "top": 40, "left": -140, "attrs": { "color": "yellow", "label": "B (26)" } },
+      { "type": "wokwi-pushbutton", "id": "btnC", "top": 120, "left": -140, "attrs": { "color": "red", "label": "C (34)" } }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "btnA:1.r", "esp:27", "green", [ "h0" ] ],
+      [ "btnA:2.r", "esp:GND.1", "black", [ "h0" ] ],
+      [ "btnB:1.r", "esp:26", "gold", [ "h0" ] ],
+      [ "btnB:2.r", "esp:GND.1", "black", [ "h0" ] ],
+      [ "btnC:1.r", "esp:34", "red", [ "h0" ] ],
+      [ "btnC:2.r", "esp:GND.1", "black", [ "h0" ] ]
+    ],
+    "dependencies": {}
+  }

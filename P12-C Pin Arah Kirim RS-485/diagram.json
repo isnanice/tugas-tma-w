@@ -1,0 +1,24 @@
+{
+    "version": 1,
+    "author": "Isna Ima Solekhah",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+      { "type": "wokwi-led", "id": "ledDE", "top": -40, "left": 180, "attrs": { "color": "yellow", "label": "DE" } },
+      { "type": "wokwi-resistor", "id": "r1", "top": 20, "left": 140, "attrs": { "value": "150" } },
+      { "type": "wokwi-gate-not", "id": "not1", "top": 80, "left": 180, "attrs": {} },
+      { "type": "wokwi-gate-or-2", "id": "or1", "top": 120, "left": 280, "attrs": {} }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "esp:4", "r1:1", "gold", [ "h0" ] ],
+      [ "r1:2", "ledDE:A", "gold", [ "h0" ] ],
+      [ "ledDE:C", "esp:GND.2", "black", [ "v0" ] ],
+      [ "esp:4", "not1:IN", "gold", [ "h40", "v40" ] ],
+      [ "not1:OUT", "or1:A", "orange", [ "h10", "v20" ] ],
+      [ "esp:17", "or1:B", "blue", [ "h150", "v40" ] ],
+      [ "or1:OUT", "esp:26", "green", [ "h20", "v130", "h-420", "v-130" ] ]
+    ],
+    "dependencies": {}
+  }
